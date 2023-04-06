@@ -28,10 +28,16 @@ app.use("/api/user", userRoutes);
 
 console.log("process.env.MONGO_URI: ", process.env.MONGO_URI);
 console.log("process.platform: ", process.platform);
+// darwin = mac
+// linux = debian (our virtual machine at 192.168.0.45)
 
 // connect to db
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(
+    process.platform === "darwin"
+      ? process.env.MONGO_URI_LOCAL
+      : process.env.MONGO_URI_REMOTE
+  )
   .then(() => {
     // listen for requests
     app.listen(process.env.PORT, () => {
