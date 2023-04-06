@@ -26,6 +26,9 @@ app.use((req, res, next) => {
 app.use("/api/obligations", obligationRoutes);
 app.use("/api/user", userRoutes);
 
+console.log("process.env.MONGO_URI: ", process.env.MONGO_URI);
+console.log("process.platform: ", process.platform);
+
 // connect to db
 mongoose
   .connect(process.env.MONGO_URI)
