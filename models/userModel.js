@@ -18,6 +18,11 @@ const userSchema = new Schema({
     type: String,
     required: false,
     enum: ["editor", "simpleUser", "dpoUser"]
+  },
+  organization: {
+    type: Schema.Types.ObjectId,
+    ref: "Organization",
+    required: true
   }
 });
 

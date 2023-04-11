@@ -5,6 +5,7 @@ const cors = require("cors");
 const path = require("path");
 
 const obligationRoutes = require("./routes/obligations");
+const organizationRoutes = require("./routes/organizations");
 const userRoutes = require("./routes/user");
 
 // express app
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 });
 
 // routes
+app.use("/api/organizations", organizationRoutes);
 app.use("/api/obligations", obligationRoutes);
 app.use("/api/user", userRoutes);
 

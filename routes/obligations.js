@@ -45,24 +45,24 @@ const router = express.Router();
 // require auth for all workout routes
 router.use(requireAuth);
 
-//previous path from root server.js is /api/workouts
+//previous path from root server.js is /api/obligations
 
-// GET all workouts
+// GET all obligations
 router.get("/", getObligations);
 
-// GET a single workout
+// GET a single obligation
 router.get("/:id", getObligation);
 
 console.log("upload object inside routes/obligations.js", upload);
 console.log("upload.single object inside routes/obligations.js", upload.single);
 
-// POST a new workout
+// POST a new obligation
 router.post("/", upload.single("pdfDocument"), createObligation);
 
-// DELETE a workout
+// DELETE an obligation
 router.delete("/:id", deleteObligation);
 
-// UPDATE a workout
+// UPDATE an obligation
 router.patch("/:id", updateObligation);
 
 module.exports = router;
